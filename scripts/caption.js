@@ -4,15 +4,91 @@ class Caption{
     constructor(){
         this.notesArr = [            
             {
-                "date":"Friday, October 24th, 2025",
-                "timestamp":"5:24 pm CST",
-                "content":"Testing stuff out"
+                "date":"",
+                "timestamp":"",
+                "content":"👋 Howdy, my name is Victor Arreola, welcome to my portfolio! <br><br> Use WASD to control the character <br> Use Mouse or Arrow keys to control the captions"
             },
             {
-                "date":"Friday, October 24th, 2025",
-                "timestamp":"5:24 pm CST",
-                "content":"Testing stuff out 2"
-            }
+                "date":"",
+                "timestamp":"",
+                "content":"I am a Full Stack Web Developer from Texas and my passion is to make lives easier. "
+            },
+            {
+                "date":"",
+                "timestamp":"",
+                "content":" I am looking for web development related positions, and believe my previous work history demonstrates that my skillset is suitable for many business use-cases . . ."
+            },
+            {
+                "date":"Here's some of my skills . . .",
+                "timestamp":"",
+                "content":`
+                
+                    JavaScript, TypeScript,
+                    HTML, CSS,
+                    React,
+                    Node.js (Express),
+                    Python (Fast API),
+                    Git, GitHub,
+                    MongoDB,
+                    SQL (MS SQL Server),
+                    Swagger, Insomnia,
+                    Figma,
+                    Unqork,
+                    Microsoft Power Apps,
+                    and Microsoft Power Automate
+
+
+                `
+            },
+            {
+                "date":"Here's some of my work history (next card) . . .",
+                "timestamp":"",
+                "content":`                
+
+                `
+            },
+            {
+                "date":"Guaranty Bank & Trust (2022 - Present)",
+                "timestamp":"Application Developer ",
+                "content":"As a part of the Information Technology and Business Systems Management departments, I helped to improve several processes for the bank’s internal functions. My work primarily involved developing and maintaining In-house/Internal business applications, as well as migrating legacy applications onto newer platforms . . ."
+            },
+            {
+                "date":"Guaranty Bank & Trust (2022 - Present)",
+                "timestamp":"Application Developer ",
+                "content":"While at Guaranty, I worked with the Microsoft Power Apps and Unqork development platforms, both of which are low-code solutions for full-stack web development . . ."
+            },
+            {
+                "date":"Guaranty Bank & Trust (2022 - Present)",
+                "timestamp":"Application Developer ",
+                "content":"I’ve used the following patterns and implementations consistently for many projects: Multi-step forms, Dashboards, Role-based access control, REST APIs, SOAP APIs, Excel exports, PDF exports, CRON scheduled tasks, Sendgrid integrations, Twilio integrations, DocuSign integrations, and Fiserv Integrations (Precision & Director)"
+            },
+            {
+                "date":"Here's some of my degrees and certifications (next card) . . .",
+                "timestamp":"",
+                "content":`                
+
+                `
+            },
+            {
+                "date":"Northeast Texas Community College (2022)",
+                "timestamp":"Associate of Science - Computer Science",
+                "content":"Studied the fundamentals of computer science and theory. The languages studied within the degree were: Java and C++ (D.S. Malik)"
+            },
+            {
+                "date":"Northeast Texas Community College (2022)",
+                "timestamp":"Computer Programming Certificate",
+                "content":"Studied Functional and Object-Oriented programming as well as Data Structures and Algorithm design: Java and C++ (D.S. Malik)"
+            },
+            {
+                "date":"FreeCodeCamp (2025)",
+                "timestamp":"Backend Development & APIs Certificate",
+                "content":"Studied server side programming with Node, Express, MongoDb. The certification projects included: URL Shortener Microservice, Exercise Tracker, and File Metadata Microservice."
+            },            
+            {
+                "date":"",
+                "timestamp":"",
+                "content":"The End!"
+            },
         ]
         this.mainCaption = document.getElementById('main-caption')
         this.currIndex = 0
