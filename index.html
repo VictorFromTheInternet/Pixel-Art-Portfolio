@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24 - Pixel Art Portfolio</title>
+    <style>
+        @import url('./styles/pixel-portfolio.css');
+        @import url('./styles/canvas.css');
+    </style>
+
+    <script defer type="module" src="./scripts/pixel-portfolio.js"></script>
+    <script defer type="module" src="./scripts/caption.js"></script>
+</head>
+<body>
+
+    <!-- Canvas Container -->
+    <div class="canvas-container">
+        <canvas id="gameCanvas"></canvas>
+        <img id="player" src="./assets/sprite sheets/victor-peasant-sprite.png" alt="">
+        <!-- <img id="background" src="../../assets/2022/backgrounds/vs code forest.png" alt=""> -->    
+        <img id="layer9" class="background" src="./assets/parallax forest/Layer_0000_9.png" alt="">
+        <img id="layer8" class="background" src="./assets/parallax forest/Layer_0001_8.png" alt="">
+        <img id="layer7" class="background" src="./assets/parallax forest/Layer_0002_7.png" alt="">
+        <img id="layer6" class="background" src="./assets/parallax forest/Layer_0003_6.png" alt="">
+        <img id="layer4_lights" class="background" src="./assets/parallax forest/Layer_0004_Lights.png" alt="">
+        <img id="layer5" class="background" src="./assets/parallax forest/Layer_0005_5.png" alt="">
+        <img id="layer4" class="background" src="./assets/parallax forest/Layer_0006_4.png" alt="">
+        <img id="layer7_lights" class="background" src="./assets/parallax forest/Layer_0007_Lights.png" alt="">
+        <img id="layer3" class="background" src="./assets/parallax forest/Layer_0008_3.png" alt="">
+        <img id="layer2" class="background" src="./assets/parallax forest/Layer_0009_2.png" alt="">
+        <img id="layer1" class="background" src="./assets/parallax forest/Layer_0010_1.png" alt="">
+        <img id="layer0" class="background" src="./assets/parallax forest/Layer_0011_0.png" alt="">
+        <img id="friendChicken" src="./assets/sprite sheets/chicken animation.png" alt="">
+    </div>    
+    
+    <div class="caption-container">
+        <img    id="caption-background-image"
+                src="./assets/textbox/textbox gold brown.png" alt="">
+        <div id="main-caption">            
+            <p class="date">-</p>
+            <p class="timestamp">-</p>
+            <p class="content">-</p>
+    
+        </div>
+        
+        
+        <div class="caption-buttons">
+            <span class="prev"><</span>
+            <span class="next">></span>
+        </div>
+    </div>
+    
+    
+    
+</body>
+</html>

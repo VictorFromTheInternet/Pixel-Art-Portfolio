@@ -1,0 +1,151 @@
+/* 
+ Open Sans
+ Roboto Mono
+ Source Code Pro
+*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root{
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+
+    --accent-color-secondary: #ff7eee;    
+    --accent-color-primary: #df49a6;    
+
+    --transition-speed: 200ms;
+}
+
+body{
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+p{
+    text-align: justify;
+}
+
+/* scroll bar */
+body::-webkit-scrollbar{
+    width: .5rem;
+}
+body::-webkit-scrollbar-track{
+    background-color: var(--bg-primary);
+}
+body::-webkit-scrollbar-thumb{
+    background-color: var(--accent-color-primary);
+}
+
+
+/* main and nav container */
+main{
+    padding: 1rem;
+}
+.navbar{    
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: var(--bg-secondary);
+
+    transition: 200ms ease-out;
+}
+
+
+/* navbar items */
+.navbar-nav{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+}
+.nav-item{
+    width: 100%;
+}
+.nav-link{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition-speed) ease-out;
+}
+.link-text{
+    display:none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.nav-link i{
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0 1.5rem;
+
+    transition: var(--transition-speed) ease-out;
+}
+
+/* hover effects links */
+.nav-link:hover{    
+    background-color: var(--bg-primary);
+}
+.nav-link:hover .link-text,
+.nav-link:hover i{
+    transform: scale(125%);
+    color: var(--accent-color-primary);
+}
+
+
+/* media queries */
+/* small screens */
+@media only screen and (max-width: 600px){
+    .navbar{
+        width: 100vw;
+        height: 5rem;
+        top: calc(100vh - 5rem);             
+    }
+    .navbar-nav{        
+        flex-direction: row;       
+    
+    }
+    .nav-link{
+        justify-content: center;
+    }
+    .link-text{
+        display: none;
+    }
+    main{
+        margin-left: 0px;
+        margin-bottom: 5rem;
+    }
+}
+
+/* large screens */
+@media only screen and (min-width: 600px){
+    .navbar{
+        width: 5rem;
+        height: 100vh;        
+        top: 0px;        
+    }
+    /* navbar animation */
+    .navbar:hover{
+        width: 14rem;
+    }
+    .navbar:hover .link-text{
+        display: block;
+    }
+    main{
+        margin-left: 5rem;
+    }
+}
