@@ -28,7 +28,7 @@ html,body{
     background-color: var(--bg-color);    
 
     /* cursor: url(http://www.rw-designer.com/cursor-extern.php?id=18732); */
-    cursor: url('../assets/GLOVE\ CURSOR\ 2.cur'), pointer;
+    cursor: url('../assets/GLOVE_CURSOR_2.cur'), pointer;
 }
 
 #gameCanvas{
