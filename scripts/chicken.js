@@ -1,6 +1,6 @@
 import {Walking, Idle, Jump, Emote} from './playerStates.js'
 
-export class Player{
+export class Chicken{
     constructor(game, scale, sWidth, sHeight){
         this.game = game    
         this.scale = scale
@@ -20,7 +20,7 @@ export class Player{
         this.vy = 0
         this.weight = 1
 
-        this.image = document.getElementById('player')
+        this.image = document.getElementById('friendChicken')
         this.states = [
             new Walking(this),
             new Idle(this),

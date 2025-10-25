@@ -46,7 +46,7 @@ function GAME(canvas, ctx){
 
             // init class instances            
             this.background = new Background(this)
-            this.player = new Player(this)
+            this.player = new Player(this, 2, 72, 47.5) // game, scale, sWidth, sHeight
             this.input = new InputHandler()            
 
         }
