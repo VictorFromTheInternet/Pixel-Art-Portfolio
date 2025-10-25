@@ -47,20 +47,37 @@ function GAME(canvas, ctx){
 
             // init class instances            
             this.background = new Background(this)
-            this.player = new Player(this, 2, 72, 47.5) // game, scale, sWidth, sHeight
-            this.chicken1 = new Chicken(this, 3, 16, 16) // game, scale, sWidth, sHeight
+            this.player = new Player(this, 2, 72, 47.5) // game, scale, sWidth, sHeight            
             this.input = new InputHandler()            
 
+            this.chickens = []
+            this.createChickens(5)
+
         }
+
+        createChickens(numChickens){
+            for(let i=0; i<numChickens; i++){
+                const temp = new Chicken(this, 3, 15, 16.25, this.player, i) // game, scale, sWidth, sHeight, player, flockIndex
+                this.chickens.push(temp)
+            }
+        }
+
         update(deltaTime){
             this.background.update()
             this.background.draw(ctx)
-            this.player.update(this.input.keys, deltaTime)                    
+            this.player.update(this.input.keys, deltaTime)       
+            
+            this.chickens.forEach(chicken =>{
+                chicken.update(this.input.keys, deltaTime)
+            })
         }
         draw(){
             // draw the player
             this.player.draw(ctx) 
-            // this.chicken1.draw(ctx)
+            
+            this.chickens.forEach(chicken =>{
+                chicken.draw(ctx)
+            })
         }
     }
     
