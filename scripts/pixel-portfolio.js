@@ -68,7 +68,7 @@ function GAME(canvas, ctx){
             this.player.update(this.input.keys, deltaTime)       
             
             this.chickens.forEach(chicken =>{
-                chicken.update(this.input.keys, deltaTime)
+                chicken.update( deltaTime)
             })
         }
         draw(){
