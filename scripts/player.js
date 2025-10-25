@@ -1,5 +1,16 @@
 import {Walking, Idle, Jump, Emote} from './playerStates.js'
 
+
+/*
+
+    todo:
+    - track direction left/right
+    - flip the sprite direction ( ctx.scale(-1,1) )
+    - background should move in the opposite direction of the player    
+
+*/
+
+
 export class Player{
     constructor(game, scale, sWidth, sHeight){
         this.game = game    
@@ -14,6 +25,9 @@ export class Player{
         this.height = this.sHeight * this.scale
         this.x = 0
         this.y = this.game.height - (this.height + this.floorPadding)
+
+        this.currDirection = "right"
+        this.lastDirection = "left"
 
         this.speed = 0
         this.maxSpeed = 3 // in pixels per frame
@@ -45,17 +59,32 @@ export class Player{
 
     update(input, deltaTime){
         this.currentState.handleInput(input)
+
+
+        // update direction and speed (left, right)
+        if(input.includes('d')){
+            this.speed = this.maxSpeed
+            this.game.speed = 1 // move bg left when going right
+
+            this.lastDirection = "left"
+            this.currDirection = "right"            
+        }
+        else if(input.includes('a')){
+            this.speed = -1 * this.maxSpeed
+            this.game.speed = -1 // move bg right when going left
+
+            this.lastDirection = "right"
+            this.currDirection = "left"            
+        }
+        else{
+            this.speed = 0
+            this.game.speed = 0 // idle
+        }
         
 
         // x - horizontal movement
         this.x += this.speed
-
-        if(input.includes('d'))
-            this.speed = this.maxSpeed
-        else if(input.includes('a'))
-            this.speed = -1 * this.maxSpeed
-        else
-            this.speed = 0
+        
 
         //x -  boundaries <>
         if(this.x < 0)
@@ -92,8 +121,7 @@ export class Player{
     }
 
     setState(state,speed){ // called in state handler
-        this.currentState = this.states[state] // state is an int val
-        this.game.speed = speed
+        this.currentState = this.states[state] // state is an int val        
         this.currentState.enter()
     }
 
@@ -108,18 +136,38 @@ export class Player{
         // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
         let sx = this.frameX * this.sWidth
         let sy = this.frameY * this.sHeight         
-                
         
-        ctx.drawImage(  this.image,
-                        sx,
-                        sy,
-                        this.sWidth,
-                        this.sHeight,
-                        this.x ,
-                        this.y ,
-                        this.width ,
-                        this.height
-        )
+        ctx.save()
+        
+        if(this.currDirection == "left"){            
+            ctx.scale(-1,1)
+            ctx.drawImage(  
+                this.image,
+                sx,
+                sy,
+                this.sWidth,
+                this.sHeight,
+                -this.x - this.width,
+                this.y ,
+                this.width ,
+                this.height
+            )
+        }
+        else if(this.currDirection == "right"){
+            ctx.drawImage(  
+                this.image,
+                sx,
+                sy,
+                this.sWidth,
+                this.sHeight,
+                this.x ,
+                this.y ,
+                this.width ,
+                this.height
+            )
+        }        
+        
+        ctx.restore()
 
     }
 

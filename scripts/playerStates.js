@@ -121,7 +121,7 @@ export class Jump extends State{
         
         this.player.y += this.player.vy
         if(this.player.onGround()) // apply force upward
-            this.player.vy -= 10    
+            this.player.vy -= 15    
                 
             
     }

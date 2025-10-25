@@ -1,3 +1,5 @@
+
+
 class Layer{
     constructor(game, width, height, speedModifier, image){
         this.game = game
@@ -16,12 +18,28 @@ class Layer{
     }
     update(){
 
-        // reset layer back in place, on the righthand side of screen
-        // (gap will be covered by second image)
-        if (this.x < -this.width)
-            this.x = 0
-        else
-            this.x -= this.game.speed * this.speedModifer
+        // using absolute value for speed calc
+        const moveSpeed = Math.abs(this.game.speed) * this.speedModifer
+
+
+        if(this.game.speed > 0){
+            // player moving right, bg moves left
+            this.x -= moveSpeed
+
+            // reset layer back in place, on the righthand side of screen
+            // (gap will be covered by second image)
+            if (this.x < -this.width)
+                this.x = 0
+
+        }
+        else if(this.game.speed < 0){
+            // player moving left, bg moves right
+            this.x += moveSpeed
+            if(this.x > 0)
+                this.x = -this.width
+
+        }
+        // else (game speed == 0) the bg doesnt move                
 
 
     }
