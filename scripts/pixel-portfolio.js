@@ -1,4 +1,5 @@
 import {Player} from './player.js'
+import {Chicken} from './chicken.js'
 import {InputHandler} from './input.js'
 import {Background} from './background.js'
 
@@ -47,6 +48,7 @@ function GAME(canvas, ctx){
             // init class instances            
             this.background = new Background(this)
             this.player = new Player(this, 2, 72, 47.5) // game, scale, sWidth, sHeight
+            this.chicken1 = new Chicken(this, 3, 16, 16) // game, scale, sWidth, sHeight
             this.input = new InputHandler()            
 
         }
@@ -58,6 +60,7 @@ function GAME(canvas, ctx){
         draw(){
             // draw the player
             this.player.draw(ctx) 
+            // this.chicken1.draw(ctx)
         }
     }
     

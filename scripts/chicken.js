@@ -1,5 +1,12 @@
-import {Walking, Idle, Jump, Emote} from './playerStates.js'
+import {Walking, Idle, Jump, Emote} from './chickenStates.js'
 
+// 64w x 80h (4 col, 5 rows) 
+// 16w x 16h
+// front
+// backwards
+// right
+// left
+// idle
 export class Chicken{
     constructor(game, scale, sWidth, sHeight){
         this.game = game    
