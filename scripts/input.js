@@ -17,7 +17,7 @@ export class InputHandler{
             ){
                 this.keys.push(event.key)
             }
-            console.log(this.keys)
+            // console.log(this.keys)
         })
         // remove keys
         window.addEventListener('keyup', (event)=>{                                

@@ -36,11 +36,11 @@ export class Chicken{
         this.y = this.game.height - (this.height + this.floorPadding)
 
         // follow behavior
-        this.followDistance = 10 + (flockIndex * 10 )        
+        this.followDistance = 50 + (flockIndex * 20 )        
         this.followOffsetX = (Math.random() - .5) * 100
 
         this.speed = 0
-        this.maxSpeed = 1 // in pixels per frame
+        this.maxSpeed = .5 // in pixels per frame
         this.vy = 0
         this.weight = 1
 
@@ -53,11 +53,11 @@ export class Chicken{
         this.currentState.enter()
 
         this.frameX = 0
-        this.frameY = 0
+        this.frameY = 4
         this.maxFrame = 3 // num frames for idle is 4
-        this.fps = 1
+        this.fps = 6
         this.frameInterval = 1000/this.fps
-        this.frameTimer = 0 // will count global frames, and loop from 0-frameInterval 
+        this.frameTimer = 0 // will count global frames, and loop from 0 - frameInterval 
 
     }
 
@@ -80,10 +80,16 @@ export class Chicken{
         if(this.frameTimer > this.frameInterval){
             this.frameTimer = 0
 
-            if(this.frameX < this.maxFrame)
-                this.frameX++
-            else
+            if(this.frameX < this.maxFrame){
+                this.frameX+=1
+                if(this.flockIndex == 0){
+                    console.log(`Chicken Loop: increment ${this.frameX} - ${this.flockIndex}`)                    
+                }                
+            }                
+            else{
                 this.frameX = 0
+                console.log(`Chicken Loop: zero ${this.frameX} - ${this.flockIndex}`)                    
+            }                
         }
         else{
             this.frameTimer += deltaTime
@@ -114,11 +120,13 @@ export class Chicken{
 
             // Set to walking state
             this.setState(0) // Walking is index 0
+            // console.log(`Chicken State: walking - ${this.flockIndex}`)
 
         }
         else{
             this.speed = 0
             this.setState(1)
+            // console.log(`Chicken State: idle - ${this.flockIndex}`)
         }
 
 
@@ -126,10 +134,12 @@ export class Chicken{
     }
     
 
-    setState(state,speed){ // called in state handler
-        this.currentState = this.states[state] // state is an int val
-        // this.game.speed = speed
-        this.currentState.enter()
+    setState(state){ // called in state handler
+
+        if(this.currentState !== this.states[state]){
+            this.currentState = this.states[state] // state is an int val        
+            this.currentState.enter()
+        }        
     }
 
     draw(ctx){ // called in main

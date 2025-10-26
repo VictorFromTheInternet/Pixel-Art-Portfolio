@@ -47,15 +47,15 @@ export class Idle extends State{
 
         if(input.includes(' ')){            
             this.player.setState(states.emote, 0) // int val of 7
-            console.log(`State: run/emote - ${states.emote}`)
+            // console.log(`State: run/emote - ${states.emote}`)
         }
         else if(input.includes('a') || input.includes('d')){            
             this.player.setState(states.walking, 1) // int val of 0
-            console.log(`State: walking - ${states.walking}`)
+            // console.log(`State: walking - ${states.walking}`)
         }        
         else if(input.includes('w') && this.player.onGround()){            
             this.player.setState(states.run, 0) // int val of 3
-            console.log(`State: run/jump - ${states.run}`)
+            // console.log(`State: run/jump - ${states.run}`)
         }
         
     }
@@ -79,11 +79,11 @@ export class Walking extends State{
 
         if(input.includes(' ')){            
             this.player.setState(states.emote, 0) // int val of 7d
-            console.log(`State: emote - ${states.emote}`)
+            // console.log(`State: emote - ${states.emote}`)
         }
         else if(input.includes('w') && this.player.onGround()){            
             this.player.setState(states.run, 0) // int val of 3
-            console.log(`State: jump - ${states.run}`)
+            // console.log(`State: jump - ${states.run}`)
         } 
         // else if(this.player.frameX == 5 || ( input.includes('a') == -1 && input.includes('d') ==-1) ){            
         //     this.player.setState(states.idle, 0) // int val of 1
@@ -96,12 +96,12 @@ export class Walking extends State{
                     input.length == 0
                 ){            
             this.player.setState(states.idle, 0) // int val of 1
-            console.log (`State: idle - ${states.idle}`)            
+            // console.log (`State: idle - ${states.idle}`)            
         }
         
         if(input.includes('s') && this.player.onGround()){            
             this.player.setState(states.idle, 0) // int val of 3
-            console.log(`State: idle - ${states.idle}`)
+            // console.log(`State: idle - ${states.idle}`)
         }       
         
     }
@@ -129,16 +129,16 @@ export class Jump extends State{
                 
         if(input.includes(' ')){            
             this.player.setState(states.emote, 1) // int val of 7
-            console.log(`State: emote - ${states.emote}`)
+            // console.log(`State: emote - ${states.emote}`)
         }
         else if(input.includes('a') || input.includes('d')){            
             this.player.setState(states.walking, 1) // int val of 0
-            console.log(`State: walking - ${states.walking}`)
+            // console.log(`State: walking - ${states.walking}`)
             
         }        
         else if(this.player.frameX == 2){            
             this.player.setState(states.idle, 0) // int val of 1
-            console.log(`State: idle - ${states.idle}`)
+            // console.log(`State: idle - ${states.idle}`)
             
         }
     }

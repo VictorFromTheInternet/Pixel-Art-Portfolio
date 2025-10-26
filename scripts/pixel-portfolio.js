@@ -57,7 +57,7 @@ function GAME(canvas, ctx){
 
         createChickens(numChickens){
             for(let i=0; i<numChickens; i++){
-                const temp = new Chicken(this, 3, 15, 16.25, this.player, i) // game, scale, sWidth, sHeight, player, flockIndex
+                const temp = new Chicken(this, 3, 16.25, 16.25, this.player, i) // game, scale, sWidth, sHeight, player, flockIndex
                 this.chickens.push(temp)
             }
         }
@@ -68,7 +68,7 @@ function GAME(canvas, ctx){
             this.player.update(this.input.keys, deltaTime)       
             
             this.chickens.forEach(chicken =>{
-                chicken.update( deltaTime)
+                chicken.update( deltaTime )
             })
         }
         draw(){
