@@ -83,12 +83,12 @@ export class Chicken{
             if(this.frameX < this.maxFrame){
                 this.frameX+=1
                 if(this.flockIndex == 0){
-                    console.log(`Chicken Loop: increment ${this.frameX} - ${this.flockIndex}`)                    
+                    // console.log(`Chicken Loop: increment ${this.frameX} - ${this.flockIndex}`)                    
                 }                
             }                
             else{
                 this.frameX = 0
-                console.log(`Chicken Loop: zero ${this.frameX} - ${this.flockIndex}`)                    
+                // console.log(`Chicken Loop: zero ${this.frameX} - ${this.flockIndex}`)                    
             }                
         }
         else{
@@ -135,7 +135,7 @@ export class Chicken{
     
 
     setState(state){ // called in state handler
-
+        // only change state if its different from curr state (this fixed previous animation glitch)
         if(this.currentState !== this.states[state]){
             this.currentState = this.states[state] // state is an int val        
             this.currentState.enter()
