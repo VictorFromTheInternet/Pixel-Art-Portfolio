@@ -87,7 +87,13 @@ class Caption{
             {
                 "date":"",
                 "timestamp":"",
-                "content":"The End!"
+                "content":`
+                    Thats All Folks! <br><br> 
+                    Heres where you can find me: <br>
+                    <a style="color: white;" href="https://www.linkedin.com/in/victor-from-the-internet">LinkedIn</a> -
+                    <a style="color: white;" href="https://github.com/victorfromtheinternet">GitHub</a> -
+                    <a style="color: white;" href="mailto:victorfromtheinternet.dev@gmail.com">Email</a> 
+                `
             },
         ]
         this.mainCaption = document.getElementById('main-caption')
